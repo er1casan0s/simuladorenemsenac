@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador ENEM Senac</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #FF6600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #FF6600;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .clock-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .clock {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #FF6600;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+            margin: 10px 0;
+        }
+
+        .date {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .message-container {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .message {
+            background: rgba(255, 102, 0, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+            animation: pulse 2s infinite;
+            max-width: 90%;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .info-panel {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #FF6600;
+        }
+
+        .info-content {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .clock {
+                font-size: 3rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">ES</div>
+                <h1>Simulador ENEM Senac</h1>
+            </div>
+            <p class="subtitle">Acompanhe o tempo de prova em tempo real</p>
+        </div>
+        
+        <div class="clock-container">
+            <div class="date" id="current-date">Carregando data...</div>
+            <div class="clock" id="clock">00:00:00</div>
+            <div>Tempo de Prova</div>
+        </div>
+        
+        <div class="message-container" id="message-container">
+            <!-- Mensagens aparecerão aqui automaticamente -->
+        </div>
+        
+        <!--<div class="info-panel">
+            <div class="info-title">Horários Importantes</div>
+            <div class="info-content">
+                <p>• 9:00 - Intervalo para ir ao banheiro</p>
+                <p>• 10:00 - Liberação para saída de quem terminou</p>
+                <p>• 11:30 - Faltam 30 minutos para o término</p>
+                <p>• 11:45 - Faltam 15 minutos para o término</p>
+                <p>• 11:50 - Faltam 10 minutos para o término</p>
+                <p>• 12:00 - Término da prova</p>
+            </div>
+        </div>-->
+        
+        <div class="footer">
+            Simulador ENEM Senac &copy; 2023 - Desenvolvido para fins educacionais
+        </div>
+    </div>
+
+    <script>
+        // Função para atualizar o relógio em tempo real
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            // Atualiza o relógio na página
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // Atualiza a data na página
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('pt-BR', options);
+            
+            // Verifica se é hora de exibir alguma mensagem
+            checkForMessages(hours, minutes, seconds);
+        }
+
+        // Função para verificar e exibir mensagens nos horários especificados
+        function checkForMessages(hours, minutes, seconds) {
+            const messageContainer = document.getElementById('message-container');
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            
+            // Limpa mensagens anteriores após 5 segundos
+            if (messageContainer.innerHTML && seconds % 10 === 0) {
+                setTimeout(() => {
+                    messageContainer.innerHTML = '';
+                }, 5000);
+            }
+            
+            // Verifica os horários especificados e exibe as mensagens correspondentes
+            switch(currentTime) {
+                case '09:00:00':
+                    showMessage("Intervalo: Podem ir ao banheiro (5 minutos)");
+                    break;
+                case '10:00:00':
+                    showMessage("Atenção: Podem sair quem terminou o simulado");
+                    break;
+                case '11:30:00':
+                    showMessage("Atenção: Faltam 30 minutos para o término da prova");
+                    break;
+                case '11:45:00':
+                    showMessage("Atenção: Faltam 15 minutos para o término da prova");
+                    break;
+                case '11:50:00':
+                    showMessage("Atenção: Faltam 10 minutos para o término da prova");
+                    break;
+                case '12:00:00':
+                    showMessage("A prova acabou! Por favor, entreguem suas folhas de resposta");
+                    break;
+            }
+        }
+
+        // Função para exibir mensagens na tela
+        function showMessage(text) {
+            const messageContainer = document.getElementById('message-container');
+            messageContainer.innerHTML = `<div class="message">${text}</div>`;
+            
+            // Remove a mensagem após 5 segundos (exceto a última)
+            if (text !== "A prova acabou! Por favor, entreguem suas folhas de resposta") {
+                setTimeout(() => {
+                    messageContainer.innerHTML = '';
+                }, 5000);
+            }
+        }
+
+        // Inicializa o relógio e atualiza a cada segundo
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
